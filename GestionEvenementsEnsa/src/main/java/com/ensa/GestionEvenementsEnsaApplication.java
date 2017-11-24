@@ -5,8 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class GestionEvenementsEnsaApplication {
-	//testjjjjllll
+//gggggggggg
 	public static void main(String[] args) {
+
 		SpringApplication.run(GestionEvenementsEnsaApplication.class, args);
 	}
 }
