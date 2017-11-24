@@ -22,8 +22,10 @@ public class Reservation implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
+	private String titre;
 	@Temporal(TemporalType.DATE)
-	private Date date;
+	private Date dateCreation;
 	private String description;
 	private String etat;
 	
@@ -47,10 +49,20 @@ public class Reservation implements Serializable{
 	}
 
 
-	public Reservation(Integer id, Date date, String description, String etat) {
+	public Reservation(String titre, Date dateCreation, String description, String etat) {
+		super();
+		this.titre = titre;
+		this.dateCreation = dateCreation;
+		this.description = description;
+		this.etat = etat;
+	}
+
+
+	public Reservation(Integer id, String titre, Date dateCreation, String description, String etat) {
 		super();
 		this.id = id;
-		this.date = date;
+		this.titre = titre;
+		this.dateCreation = dateCreation;
 		this.description = description;
 		this.etat = etat;
 	}
@@ -66,13 +78,23 @@ public class Reservation implements Serializable{
 	}
 
 
-	public Date getDate() {
-		return date;
+	public String getTitre() {
+		return titre;
 	}
 
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+
+	public Date getDateCreation() {
+		return dateCreation;
+	}
+
+
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
 	}
 
 
@@ -95,6 +117,7 @@ public class Reservation implements Serializable{
 		this.etat = etat;
 	}
 
+
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
@@ -114,9 +137,11 @@ public class Reservation implements Serializable{
 		this.evenement = evenement;
 	}
 
+
 	public List<ReservationSalle> getReservationSalles() {
 		return reservationSalles;
 	}
+
 
 	public void setReservationSalles(List<ReservationSalle> reservationSalles) {
 		this.reservationSalles = reservationSalles;

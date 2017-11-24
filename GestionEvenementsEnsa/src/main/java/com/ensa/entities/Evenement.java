@@ -20,8 +20,9 @@ public class Evenement implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	private String titre;
 	@Temporal(TemporalType.DATE)
-	private Date date;
+	private Date dateCreation;
 	private String description;
 	private String etat;
 	
@@ -41,10 +42,33 @@ public class Evenement implements Serializable{
 		super();
 	}
 
-	public Evenement(Integer id, Date date, String description, String etat, Date dateDebut, Date dateFin) {
+	public Evenement(Integer id, Date dateCreation, String description, String etat, Date dateDebut, Date dateFin) {
 		super();
 		this.id = id;
-		this.date = date;
+		this.dateCreation = dateCreation;
+		this.description = description;
+		this.etat = etat;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+	}
+
+	
+	public Evenement(String titre, Date dateCreation, String description, String etat, Date dateDebut, Date dateFin) {
+		super();
+		this.titre = titre;
+		this.dateCreation = dateCreation;
+		this.description = description;
+		this.etat = etat;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+	}
+
+	public Evenement(Integer id, String titre, Date dateCreation, String description, String etat, Date dateDebut,
+			Date dateFin) {
+		super();
+		this.id = id;
+		this.titre = titre;
+		this.dateCreation = dateCreation;
 		this.description = description;
 		this.etat = etat;
 		this.dateDebut = dateDebut;
@@ -59,12 +83,12 @@ public class Evenement implements Serializable{
 		this.id = id;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getDateCreation() {
+		return dateCreation;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDateCreation(Date date) {
+		this.dateCreation = date;
 	}
 
 	public String getDescription() {
@@ -107,4 +131,21 @@ public class Evenement implements Serializable{
 		this.reservation = reservation;
 	}
 
+	public String getTitre() {
+		return titre;
+	}
+
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
+	
 }
